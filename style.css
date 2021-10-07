@@ -1,0 +1,121 @@
+:root {
+    --primary-dark: #222831;
+    --primary-light: #EEEEEE;
+    --primary-grey: #393E46;
+}
+
+body {
+    background-color: var(--primary-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+
+    font-family: 'Roboto', sans-serif;
+    color: var(--primary-grey);
+}
+
+#calculator {
+    flex: 1 1 auto;
+    background-color: var(--primary-light);
+    max-width: 90%;
+    min-height: 90%;
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px solid var(--primary-dark);
+    border-radius: 1em;
+    box-shadow: 0 5px 15px var(--primary-dark);
+    padding: 1.5em;
+}
+
+#display {
+    flex: 1 1 auto;
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    margin: 1em;
+    border: 1px solid var(--primary-dark);
+    border-radius: 1em;
+}
+
+#display > p {
+    margin: 0;
+}
+
+#input {
+    flex: 2 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.row {
+    display: flex;
+    flex: 1 1 auto;
+    gap: 1em;
+}
+
+#inputclr {
+    flex: 1 1 auto;
+    display: flex;
+}
+
+.clr {
+    flex: 1 1 0;
+}
+
+.input {
+    flex: 1 1 0;
+}
+
+#input button {
+    font-size: 1.5em;
+    color: var(--primary-grey);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5em;
+    padding: 0;
+    border-color: var(--primary-dark);
+    border-width: 1px;
+}
+
+#input button:hover {
+    box-shadow: 0 5px 15px var(--primary-dark);
+    border-color: transparent;
+    color:  var(--primary-light);
+    background-color: var(--primary-grey);
+}
+
+#display div {
+    flex: 1 1 0;
+    overflow: scroll;
+}
+
+#operand {
+    font-size: 3em;
+    text-align: right;
+}
+
+#equation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+}
+
+#equation>div {
+    font-size: 1em;
+    text-align: right;
+    overflow: scroll;
+    overflow-wrap: break-word;
+}
+
+#operand:empty::before {
+    content: '0.';
+}
