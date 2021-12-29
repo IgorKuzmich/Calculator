@@ -65,7 +65,7 @@ function isOperator(c) {
     return false;
 }
 
-class Calc {
+class SimpleExpression {
     #tokens = [];
     constructor(expression) {
         this.#tokens = parseEquation(expression);
@@ -142,9 +142,9 @@ class Calc {
     }
 }
 
-const Calculator = (expression='') => {
+const Expression = (expression='') => {
     expression = expression.replace(/\s/g,'');
-    return new Calc(expression);
+    return new SimpleExpression(expression);
 };
 
-module.exports = Calculator;
+module.exports = Expression;
