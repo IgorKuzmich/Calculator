@@ -1,3 +1,10 @@
 # Calculator
 
-Basic Calculator in HTML, CSS, Javascript
+**Learing Web Dev**
+- Languages:
+  - HTML
+  - CSS
+  - Javascript
+- Tools:
+  - Jest
+  - Webpack
