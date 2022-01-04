@@ -84,4 +84,5 @@ function pressDigit(e) {
 function updateDisplay() {
     display.innerHTML = calc.display();
     expression.innerHTML = calc.expression();
+    expression.scrollTop = expression.scrollHeight;
 }
