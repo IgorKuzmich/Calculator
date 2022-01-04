@@ -26,7 +26,14 @@ window.addEventListener('keydown', (e) => {
         calc.pressDigit(key);
     }
     else if(key === "+" || key === "-" || key === "*" || key === "/" || key === "=") {
-        calc.pressOperator(key);
+        try{
+            calc.pressOperator(key);
+        } catch(err) {
+            calc.allClear();
+            updateDisplay();
+            display.innerHTML = "Error";
+            return;
+        }
     }
     else if(key === "a") {
         calc.allClear();
@@ -58,8 +65,14 @@ function allClear() {
 
 function pressOperator(e) {
     const op = e.target.value;
-    calc.pressOperator(op);
-    updateDisplay();
+    try {
+        calc.pressOperator(op);
+        updateDisplay();
+    } catch(err) {
+        calc.allClear();
+        updateDisplay();
+        display.innerHTML = "Error";
+    }
 }
 
 function pressDigit(e) {
