@@ -119,7 +119,7 @@ body {
 }
 
 #operand>div:empty::before {
-    content: '0.';
+    content: '0';
 }
 
 #equation>div {

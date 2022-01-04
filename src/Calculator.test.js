@@ -83,6 +83,12 @@ test('Can use decimal', () => {
     expect(calc.expression()).toEqual("5.5*2.1");
 })
 
+test('Solves if = is pressed after another operator', () => {
+    const calc = Calculator("1+1+1+=");
+    expect(calc.display()).toEqual("3");
+    expect(calc.expression()).toEqual("1+1+1")
+})
+
 function doSteps(c, steps='') {
     for(let val of steps) {
         if(val >= "0" && val <="9") {

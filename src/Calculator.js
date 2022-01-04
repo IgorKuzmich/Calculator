@@ -60,7 +60,11 @@ class Calc{
         }
         if(this.#num === "") {
             if(this.#operator !== "") {
-                this.#operator = op;
+                if(op === "=") {
+                    this.#display = "" + this.#expression.solve();
+                } else {
+                    this.#operator = op;
+                }
                 return;
             }
             this.#num = "0";
