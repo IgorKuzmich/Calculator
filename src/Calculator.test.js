@@ -89,6 +89,67 @@ test('Solves if = is pressed after another operator', () => {
     expect(calc.expression()).toEqual("1+1+1")
 })
 
+test('AllClear resets calculator', () => {
+    const calc = Calculator("1+3*4/2");
+    calc.allClear();
+    expect(calc.display()).toEqual("0");
+    expect(calc.expression()).toEqual("");
+})
+
+test('clear deletes number', () => {
+    const calc = Calculator("1+3+5+888");
+    calc.clear();
+    expect(calc.display()).toEqual("0");
+    expect(calc.expression()).toEqual("1+3+5+");
+})
+
+test('clear resets after =', () => {
+    const calc = Calculator("1+3+5+888=");
+    calc.clear();
+    expect(calc.display()).toEqual("0");
+    expect(calc.expression()).toEqual("");
+})
+
+test('delete deletes last digit', () => {
+    const calc = Calculator("1+2+3+888");
+    calc.delete();
+    expect(calc.display()).toEqual("88");
+})
+
+test('delete resets after =', () => {
+    const calc = Calculator("1+2+3+888=");
+    calc.delete();
+    expect(calc.display()).toEqual("0");
+    expect(calc.expression()).toEqual("");
+})
+
+test("delete does nothing after on empty number", () => {
+    const calc = Calculator("1+2+3+88");
+    calc.delete();
+    calc.delete();
+    expect(calc.display()).toEqual("0");
+    expect(calc.expression()).toEqual("1+2+3+");
+})
+
+test("can append after delete", () => {
+    const calc = Calculator("1+2+3+88");
+    calc.delete();
+    calc.pressDigit("5");
+    expect(calc.display()).toEqual("85");
+    expect(calc.expression()).toEqual("1+2+3+");
+})
+
+test("can solve after full delete", () => {
+    const calc = Calculator("1+2+3+88");
+    calc.delete();
+    calc.delete();
+    calc.pressOperator("=");
+    expect(calc.display()).toEqual("6");
+    expect(calc.expression()).toEqual("1+2+3");
+})
+
+
+
 function doSteps(c, steps='') {
     for(let val of steps) {
         if(val >= "0" && val <="9") {

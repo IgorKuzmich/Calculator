@@ -27,6 +27,28 @@ class Calc{
         this.#display = this.#num;
     }
 
+    allClear() {
+        this.#reset();
+    }
+
+    clear() {
+        if(this.#display !== this.#num) {
+            this.#reset();
+        } else {
+            this.#display = "";
+            this.#num = "";
+        }
+    }
+
+    delete() {
+        if(this.#display !== this.#num) {
+            this.#reset();
+        } else if(this.#display.length > 0) {
+            this.#num = this.#num.slice(0, -1);
+            this.#display = this.#num;
+        } 
+    }
+
     display() {
         if(this.#display == "") {
             return "0"
