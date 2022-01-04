@@ -1,7 +1,7 @@
 import './style.css';
 const Calculator = require("./Calculator.js");
 
-const expression = document.querySelector("#equation>div");
+const expression = document.querySelector("#equation");
 const display = document.querySelector("#operand>div");
 const digitBtns = document.querySelectorAll(".digit");
 const opBtns = document.querySelectorAll(".operator");

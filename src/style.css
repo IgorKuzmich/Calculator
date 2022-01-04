@@ -48,10 +48,6 @@ body {
     margin: 0;
 }
 
-#equation>div:empty {
-    min-height: 20px;
-}
-
 #input {
     flex: 2 1 auto;
     display: flex;
@@ -96,8 +92,8 @@ body {
     background-color: var(--primary-grey);
 }
 
-#display div {
-    flex: 1 0 content;
+#display>div {
+    flex: 1 1 0;
     overflow: scroll;
 }
 
@@ -105,7 +101,7 @@ body {
     flex: 0 0 content;
 }
 
-#equation, #operand{
+#operand{
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -114,7 +110,7 @@ body {
 #operand>div{
     font-size: 3em;
     text-align: right;
-    overflow-wrap: break-word;
+    width: 100%;
     overflow: scroll;
 }
 
@@ -122,9 +118,8 @@ body {
     content: '0';
 }
 
-#equation>div {
+#equation {
     font-size: 1em;
-    text-align: right;
     overflow: scroll;
     overflow-wrap: break-word;
 }
