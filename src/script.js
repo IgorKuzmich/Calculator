@@ -17,6 +17,30 @@ allClearBtn.addEventListener('click', allClear);
 clearBtn.addEventListener('click', clear);
 deleteBtn.addEventListener('click', deleteDigit);
 
+window.addEventListener('keydown', (e) => {
+    const key = e.key;
+    if(key >= "0" && key <= "9") {
+        calc.pressDigit(key);
+    }
+    else if(key === ".") {
+        calc.pressDigit(key);
+    }
+    else if(key === "+" || key === "-" || key === "*" || key === "/" || key === "=") {
+        calc.pressOperator(key);
+    }
+    else if(key === "a") {
+        calc.allClear();
+    }
+    else if(key === "c") {
+        calc.clear();
+    }
+    else if(key === "Backspace") {
+        calc.delete();
+    }
+
+    updateDisplay();
+})
+
 function deleteDigit() {
     calc.delete();
     updateDisplay();
