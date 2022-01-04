@@ -110,3 +110,10 @@ test('can divide', () => {
     const result = calc.toString();
     expect(result).toEqual("10/20");
 })
+
+test('can use decimal', () => {
+    const calc = Expression('5.5*2.1');
+    const result = calc.toString();
+    expect(result).toEqual("5.5*2.1");
+    expect(calc.solve()).toEqual(11.55);
+})

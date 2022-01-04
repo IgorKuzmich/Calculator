@@ -55,7 +55,7 @@ function nextNumber(expression, start) {
 }
 
 function isDigit(e) {
-    return e >= '0' && e <= '9';
+    return (e >= '0' && e <= '9') || e === ".";
 }
 
 function isOperator(c) {
